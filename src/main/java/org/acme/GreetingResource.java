@@ -10,7 +10,13 @@ public class GreetingResource {
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    public String hello() {
+    public String hello()
+    {
+        String greeting = System.getenv("GREETING");
+        if (greeting != null && !greeting.isEmpty())
+        {
+            return greeting;
+        }
         return "Hello RESTEasy";
     }
 }
