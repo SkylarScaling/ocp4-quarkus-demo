@@ -1,18 +1,8 @@
-kind: DeploymentConfig
+kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: my-java-quarkus
 spec:
-  strategy:
-    type: Rolling
-    rollingParams:
-      updatePeriodSeconds: 1
-      intervalSeconds: 1
-      timeoutSeconds: 600
-      maxUnavailable: 25%
-      maxSurge: 25%
-    resources: {}
-    activeDeadlineSeconds: 21600
   replicas: 1
   selector:
     matchLabels:
